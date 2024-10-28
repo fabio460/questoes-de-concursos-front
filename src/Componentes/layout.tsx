@@ -15,7 +15,7 @@ import AlternativaDasQuestoes from './alternativaDasQuestoes';
 import Paginacao from './paginacao';
 import { getTamLista } from '../redux/tamDaListaRedux';
 import { apiFake, listaDoMenu } from './lista';
-import { listaDeAulasApi } from '../api/aulasApi';
+import { listarQuestoesApi } from '../api/aulasApi';
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -55,7 +55,7 @@ const Layout_2: React.FC = () => {
 
   const [lista, setLista] = useState<any>([])
   const getLista = async () => {
-    const l =await listaDeAulasApi()
+    const l =await listarQuestoesApi()
     setLista(l)
   }
   useEffect(() => {
@@ -64,14 +64,19 @@ const Layout_2: React.FC = () => {
   }, [])
 
   const listaDeQuesToesFiltrata = ()=>{
-     return children?.questoes?.filter((e:any,k:number)=>{
-      if (k >= inicio && k < fim) {
-        return e
-      }
-     })
+    //  if (lista?.children !== "") {
+      
+    //  }
+    //  return lista?.children?.questoes?.filter((e:any,k:number)=>{
+    //   if (k >= inicio && k < fim) {
+    //     return e
+    //   }
+    //  })
   }
 
-  
+//console.log(listaDeQuesToesFiltrata())
+//console.log(lista[0]?.questoes)
+console.log(children)
   return (
     <Layout style={{ minHeight: '100vh' }}>
       <Sider width={300} collapsible collapsed={collapsed} onCollapse={(value) => setCollapsed(value)}>
@@ -101,7 +106,7 @@ const Layout_2: React.FC = () => {
               </div>:
               <div>
                 {
-                 children && listaDeQuesToesFiltrata()?.map((elem:any, key:any)=>{
+                 children && lista?.map((elem:any, key:any)=>{
                     return <div key={key}>
                        <AlternativaDasQuestoes 
                           titulo={elem.titulo} 

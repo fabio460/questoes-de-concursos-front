@@ -552,3 +552,25 @@ export const data = [
 		}
 	}
 ]
+
+export const listaTeste = [
+    {
+        key:"Portugues",
+        icon:"",
+        children:"",
+        label:"Portugues",
+    },
+    {
+        key:"Matemática",
+        icon:"",
+        children:[
+            {
+                key:"PA",
+                icon:"",
+                children:"",
+                label:"PA",
+            }
+        ],
+        label:"Matemática",
+    }
+] 
